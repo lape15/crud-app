@@ -4,54 +4,76 @@ import React, {Component} from 'react';
 //     "alignItems" : "center"
 // }
 
-const button ={
-    float : "left",
-    backgroundColor : "salmon"
-}
-const input = {
-    backgroundColor : "#FFFFFF",
-    color : "black"
-}
 
 export default class NewMovie extends Component{
+   state = { 
+        title: "",
+        year: "",
+        type: "",
+        poster: ""
+}
+    
+    handleFormSubmit = (e) => {
+        e.preventDefault();
+       let movieDB = JSON.parse(localStorage.getItem("movie"))
+        movieDB = movieDB ? movieDB : []
+        const id = Math.floor(Math.random() * 10000)
+        const { title, year, type, poster } = this.state
+        const newMovie = { id, title, year,type, poster }
+        localStorage.setItem("movie", JSON.stringify([...movieDB, newMovie]))
+        this.setState({
+                    title: "",
+                    year: "",
+                    type: "",
+                    poster: ""
+})
+        console.log(newMovie) 
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
     render(){
         return (
         <div class="container" >
             <div class="row">
                 <div class="col-md-12">
                      <div class="well well-sm">
-                     <form class="form-horizontal" method="post">
+                     <form class="form-horizontal"  onSubmit={this.handleFormSubmit}>
                     <fieldset>
                         <h4 class="text-left header"> New Movie</h4>
                             <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="title" name="Title" type="text" placeholder="Movie Title" class="form-control" style={input}/>
+                                <input id="title" name="title" type="text" placeholder="Movie Title" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="year" name="Year" type="date" placeholder="Release Year" class="form-control" style={input}/>
+                                <input id="year" name="year" type="text" placeholder="Release Year" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="type" name="Type" type="text" placeholder="Movie type" class="form-control" style={input} />
+                                <input id="type" name="type" type="text" placeholder="Movie type" className="form-control" required onChange={this.handleChange} />
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="type" name="Poster" type="text" placeholder="Movie Poster" class="form-control" style={input} />
+                                <input id="type" name="poster" type="text" placeholder="Movie Poster" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn  btn-lg" style={button}>Add Movie</button>
+                                <button type="submit" className="btn  btn-lg" >Add Movie</button>
                             </div>
                         </div>
                     </fieldset>
