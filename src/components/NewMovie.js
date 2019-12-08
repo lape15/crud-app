@@ -22,10 +22,11 @@ export default class NewMovie extends Component{
         const newMovie = { id, title, year,type, poster }
         localStorage.setItem("movie", JSON.stringify([...movieDB, newMovie]))
         this.setState({
-                    title: "",
-                    year: "",
-                    type: "",
-                    poster: ""
+                    
+                    title:'',
+                    year: '',
+                    type: '',
+                    poster: ''
 })
         console.log(newMovie) 
     }
@@ -38,41 +39,41 @@ export default class NewMovie extends Component{
 
     render(){
         return (
-        <div class="container" >
-            <div class="row">
-                <div class="col-md-12">
-                     <div class="well well-sm">
-                     <form class="form-horizontal"  onSubmit={this.handleFormSubmit}>
+        <div className="container" >
+            <div className="row">
+                <div className="col-md-12">
+                     <div className="well well-sm">
+                     <form className="form-horizontal"  onSubmit={this.handleFormSubmit}>
                     <fieldset>
-                        <h4 class="text-left header"> New Movie</h4>
-                            <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
+                        <h4 className="text-left header"> New Movie</h4>
+                            <div className="form-group">
+                            <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-user bigicon"></i></span>
+                            <div className="col-md-8">
                                 <input id="title" name="title" type="text" placeholder="Movie Title" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
+                        <div className="form-group">
+                            <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-user bigicon"></i></span>
+                            <div className="col-md-8">
                                 <input id="year" name="year" type="text" placeholder="Release Year" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
+                        <div className="form-group">
+                            <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-envelope-o bigicon"></i></span>
+                            <div className="col-md-8">
                                 <input id="type" name="type" type="text" placeholder="Movie type" className="form-control" required onChange={this.handleChange} />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
+                        <div className="form-group">
+                            <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-pencil-square-o bigicon"></i></span>
+                            <div className="col-md-8">
                                 <input id="type" name="poster" type="text" placeholder="Movie Poster" className="form-control" required onChange={this.handleChange}  />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
+                        <div className="form-group">
+                            <div className="col-md-12 text-center">
                                 <button type="submit" className="btn  btn-lg" >Add Movie</button>
                             </div>
                         </div>
