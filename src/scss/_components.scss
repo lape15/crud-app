@@ -6,3 +6,20 @@
     background-color : #FFFFFF;
     color : #333
 }
+.card {
+  padding: 20px ;
+  width: 250px;
+  margin: 10px;
+  height: 50%;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: #ffffff
+}
+
+ .containers  {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute
+};
