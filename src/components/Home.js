@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import Movies from "./Movies";
+import React, {Component} from 'react'
+import Movies from './Movies'
 
 export default class Home extends Component {
   state = {
@@ -35,11 +34,10 @@ export default class Home extends Component {
     //   </div>
     // ));
     return (
-      <div className="containers">
-        {/* <h1 className="text-center">Top Trending Movies</h1> */}
-
-        <Movies movies={movies} />
-      </div>
-    );
-  }
+         <div className="containers">
+                
+         <Movies movies={movies} />
+                </div>
+            )
+    }
 }
