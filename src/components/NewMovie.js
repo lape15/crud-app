@@ -12,20 +12,6 @@ export default class NewMovie extends Component {
     poster: ""
   };
 
-<<<<<<< HEAD
-
-export default class NewMovie extends Component{
-   state = { 
-        title: "",
-        year: "",
-        type: "",
-        poster: ""
-}
-    
-   
-
-=======
->>>>>>> f665e75e6861f8b1e0843f1ce72bf4bfcce61493
   handleFormSubmit = e => {
     e.preventDefault();
     let movieDB = JSON.parse(localStorage.getItem("movie"));
@@ -36,17 +22,6 @@ export default class NewMovie extends Component{
 
     const newMovie = { id, title, year, type, poster };
     localStorage.setItem("movie", JSON.stringify([...movieDB, newMovie]));
-<<<<<<< HEAD
-this.setState({
-      title: "",
-      year: "",
-      type: "",
-      poster: ""
-    });
-    console.log(newMovie);
-  };
-
-=======
 
     this.setState({
       title: "",
@@ -56,7 +31,6 @@ this.setState({
     });
     console.log(newMovie);
   };
->>>>>>> f665e75e6861f8b1e0843f1ce72bf4bfcce61493
 
   handleChange = e => {
     this.setState({
@@ -154,11 +128,7 @@ this.setState({
                   </div>
                 </fieldset>
               </form>
-<<<<<<< HEAD
-             </div>
-=======
             </div>
->>>>>>> f665e75e6861f8b1e0843f1ce72bf4bfcce61493
           </div>
         </div>
       </div>

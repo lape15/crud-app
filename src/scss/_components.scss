@@ -1,25 +1,25 @@
 .btn {
-    float : left;
-    background-color : salmon
+  float: left;
+  background-color: salmon;
 }
- .form-control {
-    background-color : #FFFFFF;
-    color : #333
+.form-control {
+  background-color: #ffffff;
+  color: #333;
 }
 .card {
-  padding: 20px ;
+  padding: 20px;
   width: 250px;
   margin: 10px;
   height: 50%;
   text-align: center;
   letter-spacing: 1px;
-  background-color: #ffffff
+  background-color: #ffffff;
 }
 
- .containers  {
+.containers {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  position: absolute
-};
+  position: absolute;
+}
