@@ -30,6 +30,8 @@ export default class NewMovie extends Component {
       poster: ""
     });
     console.log(newMovie);
+
+    this.props.history.push("/");
   };
 
   handleChange = e => {

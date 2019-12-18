@@ -1,43 +1,53 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class EditMovie extends Component {
-    
-        state = {
-          title: "",
-          year: "",
-          type: "",
-          poster: ""
-        };
-      
-        handleFormSubmit = e => {
-          e.preventDefault();
-          let movieDB = JSON.parse(localStorage.getItem("movie"));
-          movieDB = movieDB ? movieDB : [];
-          const id = Math.floor(Math.random() * 10000);
-      
-          const { title, year, type, poster } = this.state;
-      
-          const newMovie = { id, title, year, type, poster };
-          localStorage.setItem("movie", JSON.stringify([...movieDB, newMovie]));
-      
-          this.setState({
-            title: "",
-            year: "",
-            type: "",
-            poster: ""
-          });
-          console.log(newMovie);
-        };
-      
-        handleChange = e => {
-          this.setState({
-            [e.target.name]: e.target.value
-          });
-        };
+  state = {
+    title: "",
+    year: "",
+    type: "",
+    poster: ""
+  };
+
+  handleFormSubmit = e => {
+    e.preventDefault();
+    const movieDB = JSON.parse(localStorage.getItem("movie"));
+
+    console.log(movieDB);
+
+    const { id } = this.props.match.params;
+
+    //Remove item with matched id
+    localStorage.setItem(
+      "movie",
+      JSON.stringify([...movieDB.filter(movie => movie.id !== id)])
+    );
+    const newMovieDB = JSON.parse(localStorage.getItem("movie"));
+
+    const { title, year, type, poster } = this.state;
+    const newMovie = { id, title, year, type, poster };
+
+    localStorage.setItem("movie", JSON.stringify([...newMovieDB, newMovie]));
+
+    this.setState({
+      title: "",
+      year: "",
+      type: "",
+      poster: ""
+    });
+    // console.log(newMovie);
+
+    this.props.history.push("/");
+  };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   render() {
     const { title, year, type, poster } = this.state;
     return (
-        <div class="container">
+      <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="well well-sm">
@@ -127,6 +137,6 @@ export default class EditMovie extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

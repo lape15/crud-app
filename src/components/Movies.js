@@ -12,6 +12,8 @@ const Movies = ({ movies }) => {
         <Movie movie={movie} />
       </div>
     ));
+  } else {
+    moviesContent = <div>No New Movies</div>;
   }
 
   return <div>{moviesContent}</div>;
