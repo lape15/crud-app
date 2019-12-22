@@ -15,7 +15,7 @@ class Movie extends Component {
       <div class="container">
         <div class="row">
       <div className="card">
-      <NavLink class="bin far fa-trash-alt" to={`/delete/${movie.id}`}></NavLink>
+     
       
         {" "}
         

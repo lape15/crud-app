@@ -20,8 +20,8 @@ export default class NewMovie extends Component {
 
     const { title, year, type, poster } = this.state;
 
-    const newMovie = { id, title, year, type, poster };
-    localStorage.setItem("movie", JSON.stringify([...movieDB, newMovie]));
+    const newMovie = {id, title, year, type, poster };
+    localStorage.setItem("movie", JSON.stringify({...movieDB, newMovie}));
 
     this.setState({
       title: "",
@@ -30,8 +30,6 @@ export default class NewMovie extends Component {
       poster: ""
     });
     console.log(newMovie);
-
-    this.props.history.push("/");
   };
 
   handleChange = e => {

@@ -7,13 +7,13 @@ const Movies = ({ movies }) => {
   console.log(movies);
 
   if (movies) {
-    moviesContent = movies.map(movie => (
+     moviesContent = movies.map(movie => (
       <div key={movie.id}>
         <Movie movie={movie} />
       </div>
-    ));
+    ))
   } else {
-    moviesContent = <div>No New Movies</div>;
+     moviesContent = <div>No New Movies</div>;
   }
 
   return <div>{moviesContent}</div>;
